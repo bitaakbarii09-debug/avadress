@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f2ee">
+  <meta name="description" content="آوادرس؛ فروشگاه آنلاین لباس زنانه">
+  <title>آوادرس | فروشگاه لباس زنانه</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="announcement">کالکشن جدید آوادرس رسید ✨ | ارسال رایگان برای سفارش‌های بالای ۲ میلیون تومان</div>
+  <header class="header">
+    <button class="icon-btn menu-toggle" id="menu-toggle" aria-label="باز کردن منو">☰</button>
+    <a class="brand" href="#home" aria-label="آوادرس - صفحه اصلی">آوادرس<span>AVA DRESS</span></a>
+    <nav class="nav" id="nav">
+      <a href="#home">خانه</a><a href="#products">فروشگاه</a><a href="#collections">کالکشن‌ها</a><a href="#about">درباره آوادرس</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="search-toggle" aria-label="جستجو">⌕</button>
+      <button class="icon-btn bag-btn" id="cart-open" aria-label="سبد خرید">♡ <span id="cart-count">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">استایل تو، امضای توست</p>
+        <h1>برای هر روزت،<br><em>یک حس تازه.</em></h1>
+        <p>انتخاب‌هایی ساده، شیک و ماندگار برای زنی که سبک خودش را می‌سازد.</p>
+        <a class="primary-btn" href="#products">دیدن محصولات <span>←</span></a>
+        <div class="hero-note"><span class="note-line"></span> کالکشن پاییز / زمستان ۱۴۰۵</div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-shape"></div>
+        <div class="hero-image" role="img" aria-label="استایل مینیمال زنانه"></div>
+        <div class="hero-sticker">NEW<br><b>SEASON</b></div>
+        <div class="hero-caption">کمتر، اما خاص‌تر.</div>
+      </div>
+    </section>
+
+    <section class="trust-row" aria-label="مزایای خرید">
+      <div><span>✦</span><p><b>انتخاب باکیفیت</b><small>جزئیات مهم‌اند</small></p></div>
+      <div><span>◇</span><p><b>ارسال به سراسر کشور</b><small>سفارش راحت و سریع</small></p></div>
+      <div><span>↺</span><p><b>پشتیبانی همراه شما</b><small>از انتخاب تا خرید</small></p></div>
+    </section>
+
+    <section class="section" id="collections">
+      <div class="section-heading"><div><p class="eyebrow">از کجا شروع کنیم؟</p><h2>کالکشن‌های آوادرس</h2></div><p>برای لحظه‌های معمولی و خاص زندگی.</p></div>
+      <div class="collection-grid">
+        <a class="collection-card collection-one" href="#products" data-category="مانتو"><div><small>01 / EVERYDAY</small><h3>روزمره‌ی شیک</h3><span>مشاهده محصولات ↙</span></div></a>
+        <a class="collection-card collection-two" href="#products" data-category="پیراهن"><div><small>02 / OCCASION</small><h3>برای قرارهای خاص</h3><span>مشاهده محصولات ↙</span></div></a>
+        <a class="collection-card collection-three" href="#products" data-category="شومیز"><div><small>03 / ESSENTIALS</small><h3>ضروری‌های کمد</h3><span>مشاهده محصولات ↙</span></div></a>
+      </div>
+    </section>
+
+    <section class="section products-section" id="products">
+      <div class="section-heading"><div><p class="eyebrow">انتخاب‌های این فصل</p><h2>محبوب‌های آوادرس</h2></div><a class="text-link" href="#products">همه محصولات <span>←</span></a></div>
+      <div class="shop-tools">
+        <div class="filters" id="filters">
+          <button class="filter active" data-filter="همه">همه</button>
+          <button class="filter" data-filter="مانتو">مانتو</button>
+          <button class="filter" data-filter="شومیز">شومیز</button>
+          <button class="filter" data-filter="پیراهن">پیراهن</button>
+          <button class="filter" data-filter="شلوار">شلوار</button>
+        </div>
+        <label class="sort-label">مرتب‌سازی
+          <select id="sort-select"><option value="featured">پیشنهاد آوادرس</option><option value="low">ارزان‌ترین</option><option value="high">گران‌ترین</option></select>
+        </label>
+      </div>
+      <div class="product-grid" id="product-grid"></div>
+      <p class="empty-state" id="empty-state" hidden>محصولی در این دسته پیدا نشد.</p>
+    </section>
+
+    <section class="editorial" id="about">
+      <div class="editorial-image" role="img" aria-label="پارچه و استایل مینیمال"></div>
+      <div class="editorial-copy"><p class="eyebrow">داستان آوادرس</p><h2>لباس فقط چیزی که می‌پوشی نیست؛<br><em>حسی است که با خودت می‌بری.</em></h2><p>آوادرس با یک فکر ساده شکل گرفته: لباس‌هایی پیدا کنیم که هم در آن‌ها خودت باشی و هم با خیال راحت هر روز انتخابشان کنی. با دقت به فرم، رنگ و جزئیات.</p><a class="text-link" href="#products">کشف استایل خودت <span>←</span></a></div>
+    </section>
+
+    <section class="newsletter">
+      <p class="eyebrow">نامه‌هایی با سلیقه</p><h2>از تازه‌ها باخبر شو.</h2><p>برای دریافت خبر کالکشن‌ها و پیشنهادهای ویژه عضو شو.</p>
+      <form id="newsletter-form"><input id="newsletter-email" type="email" placeholder="آدرس ایمیلت" required aria-label="آدرس ایمیل"><button type="submit">عضویت <span>←</span></button></form>
+      <small id="newsletter-status" role="status"></small>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top"><div><a class="brand footer-brand" href="#home">آوادرس<span>AVA DRESS</span></a><p>برای سبک خودت لباس بپوش.</p></div><div><b>دسترسی سریع</b><a href="#products">فروشگاه</a><a href="#collections">کالکشن‌ها</a><a href="#about">درباره ما</a></div><div><b>ارتباط با ما</b><a href="mailto:hello@avadress.example">hello@avadress.example</a><p>شنبه تا پنجشنبه، ۹ تا ۱۷</p></div><div class="social"><b>ما را دنبال کن</b><p>Instagram · Pinterest</p></div></div>
+    <div class="footer-bottom"><span>© ۱۴۰۵ آوادرس — تمامی حقوق محفوظ است.</span><span>ساخته‌شده با عشق به جزئیات ♡</span></div>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="سبد خرید" aria-hidden="true">
+    <div class="drawer-head"><h2>سبد خرید تو</h2><button class="icon-btn" id="cart-close" aria-label="بستن">×</button></div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-bottom"><div class="cart-total"><span>جمع کل</span><b id="cart-total">۰ تومان</b></div><button class="primary-btn checkout-btn" id="checkout-btn">ادامه سفارش <span>←</span></button><small>این نسخه نمایشی است؛ پرداخت واقعی فعال نیست.</small></div>
+  </aside>
+
+  <div class="search-panel" id="search-panel"><form id="search-form"><input id="search-input" type="search" placeholder="دنبال چی می‌گردی؟" aria-label="جستجوی محصولات"><button class="primary-btn" type="submit">جستجو</button><button type="button" class="icon-btn" id="search-close" aria-label="بستن جستجو">×</button></form></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
