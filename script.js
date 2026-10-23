@@ -67,7 +67,35 @@ document.getElementById('search-toggle').addEventListener('click',()=>{searchPan
 document.getElementById('search-close').addEventListener('click',()=>searchPanel.classList.remove('open'));
 document.getElementById('search-form').addEventListener('submit',e=>{e.preventDefault();searchTerm=document.getElementById('search-input').value.trim();currentFilter='همه';document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x.dataset.filter==='همه'));renderProducts();searchPanel.classList.remove('open');document.getElementById('products').scrollIntoView();});
 document.querySelectorAll('.collection-card').forEach(c=>c.addEventListener('click',()=>{currentFilter=c.dataset.category;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x.dataset.filter===currentFilter));renderProducts();}));
-document.getElementById('newsletter-form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('newsletter-status').textContent='ممنون از عضویتت! این فرم در نسخه نمایشی ایمیل را ذخیره نمی‌کند.';e.target.reset();});
+document.getElementById('newsletter-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const form = e.target;
+  const status = document.getElementById('newsletter-status');
+  const button = form.querySelector('button');
+
+  button.disabled = true;
+  status.textContent = 'در حال ثبت ایمیل...';
+
+  try {
+    const response = await fetch('https://formspree.io/f/maeeygwg', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+
+    if (response.ok) {
+      status.textContent = 'ممنون از عضویتت! 🌷';
+      form.reset();
+    } else {
+      status.textContent = 'ثبت ایمیل انجام نشد؛ لطفاً دوباره تلاش کن.';
+    }
+  } catch (error) {
+    status.textContent = 'اتصال برقرار نشد؛ لطفاً دوباره تلاش کن.';
+  } finally {
+    button.disabled = false;
+  }
+});
 document.getElementById('menu-toggle').addEventListener('click',()=>document.getElementById('nav').classList.toggle('open'));
 document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
 renderProducts();renderCart();
