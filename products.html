@@ -3,23 +3,240 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>محصولات آوادرس</title>
+  <title>محصولات | آوادرس</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: #fffaf8;
+      color: #39302f;
+      line-height: 1.8;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #f0e5e2;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #a45e68;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #554644;
+      font-size: 14px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 55px 20px 35px;
+      background: #f8e9e8;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      color: #8d4f59;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #725f5d;
+      font-size: 15px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 35px 20px 60px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 28px;
+      font-size: 24px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #f0e5e2;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px #70434a12;
+    }
+
+    .placeholder {
+      height: 230px;
+      background: linear-gradient(135deg, #f3dedd, #ead0d0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 54px;
+    }
+
+    .details {
+      padding: 18px;
+    }
+
+    .details h3 {
+      font-size: 17px;
+      margin-bottom: 6px;
+    }
+
+    .description {
+      color: #887b78;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      color: #9d5662;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      background: #a45e68;
+      color: white;
+      border: none;
+      border-radius: 9px;
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: #874954;
+    }
+
+    footer {
+      background: #f4e5e3;
+      text-align: center;
+      padding: 24px 15px;
+      color: #725f5d;
+      font-size: 13px;
+    }
+
+    @media (max-width: 500px) {
+      header {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <h1>محصولات آوادرس</h1>
+  <header>
+    <div class="logo">آوادرس</div>
 
-  <div>
-    <h2>پیراهن زنانه</h2>
-    <p>قیمت: ۵۰۰٬۰۰۰ تومان</p>
-    <button>مشاهده محصول</button>
-  </div>
+    <nav>
+      <a href="index.html">صفحه اصلی</a>
+      <a href="products.html">محصولات</a>
+      <a href="index.html#contact">ارتباط با ما</a>
+    </nav>
+  </header>
 
-  <div>
-    <h2>مانتوی زنانه</h2>
-    <p>قیمت: ۸۰۰٬۰۰۰ تومان</p>
-    <button>مشاهده محصول</button>
-  </div>
+  <section class="hero">
+    <h1>کالکشن آوادرس</h1>
+    <p>استایل دلخواهت رو پیدا کن؛ زیبایی در سادگیه.</p>
+  </section>
+
+  <main class="container">
+    <h2 class="section-title">محصولات ما</h2>
+
+    <section class="products">
+
+      <article class="card">
+        <div class="placeholder">👗</div>
+        <div class="details">
+          <h3>پیراهن زنانه</h3>
+          <p class="description">انتخابی شیک برای روزهای خاص</p>
+          <p class="price">۵۰۰٬۰۰۰ تومان</p>
+          <a class="button" href="index.html#contact">سفارش محصول</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="placeholder">🧥</div>
+        <div class="details">
+          <h3>مانتوی روزمره</h3>
+          <p class="description">راحت، زیبا و مناسب استفاده روزانه</p>
+          <p class="price">۸۰۰٬۰۰۰ تومان</p>
+          <a class="button" href="index.html#contact">سفارش محصول</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="placeholder">👚</div>
+        <div class="details">
+          <h3>شومیز زنانه</h3>
+          <p class="description">استایلی ساده و دوست‌داشتنی</p>
+          <p class="price">۴۲۰٬۰۰۰ تومان</p>
+          <a class="button" href="index.html#contact">سفارش محصول</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="placeholder">🧶</div>
+        <div class="details">
+          <h3>بافت پاییزی</h3>
+          <p class="description">گرم و جذاب برای روزهای خنک</p>
+          <p class="price">۶۵۰٬۰۰۰ تومان</p>
+          <a class="button" href="index.html#contact">سفارش محصول</a>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    آوادرس؛ انتخابی برای استایل تو 🌷
+  </footer>
 
 </body>
 </html>
