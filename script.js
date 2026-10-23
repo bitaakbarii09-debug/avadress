@@ -1,5 +1,5 @@
 const products = [
- {id:1,name:'مانتو لینن آوا',category:'مانتو',price:1890000,oldPrice:2190000,badge:'پرفروش',color:'کرم',image:'manto.jpg'},
+ {id:1,name:'مانتو لینن آوا',category:'مانتو',price:1890000,oldPrice:2190000,badge:'پرفروش',color:'کرم',image:'manto_new.jpg'},
  {id:2,name:'پیراهن میدی رُز',category:'پیراهن',price:2350000,oldPrice:0,badge:'جدید',color:'صورتی',image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80'},
  {id:3,name:'شومیز کلاسیک نوا',category:'شومیز',price:1190000,oldPrice:1390000,badge:'پیشنهاد ویژه',color:'سفید',image:'https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=700&q=80'},
  {id:4,name:'شلوار پارچه‌ای ماه',category:'شلوار',price:1450000,oldPrice:0,badge:'',color:'خاکی',image:'https://images.unsplash.com/photo-1506629905607-d9f4b4d7c0f5?auto=format&fit=crop&w=700&q=80'},
