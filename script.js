@@ -112,7 +112,9 @@ function renderProducts(){
       <div class="product-info">
         <div class="product-meta">
           <div>
-            <h3>${p.name}</h3>
+            <h3>
+  <a href="product.html?id=${p.id}" class="product-link">${p.name}</a>
+</h3>
             <p>${p.category} · رنگ ${p.color}</p>
           </div>
           <div class="price">
