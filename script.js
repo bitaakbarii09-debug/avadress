@@ -155,23 +155,28 @@ document.getElementById('cart-open').addEventListener('click',openCart);
 document.getElementById('cart-close').addEventListener('click',closeCart);
 overlay.addEventListener('click',closeCart);
 
-document.getElementById('cart-items').addEventListener('click',e=>{
-  const q=e.target.closest('[data-qty]');
-  const r=e.target.closest('[data-remove]');
+document.getElementById('cart-items').addEventListener('click', e => {
+  const q = e.target.closest('[data-qty]');
+  const r = e.target.closest('[data-remove]');
 
-  if(q){
-    const index=Number(q.dataset.index);
-    const item=cart[index];
-    if(!item)return;
+  if (q) {
+    const index = Number(q.dataset.index);
+    const item = cart[index];
+    if (!item) return;
+
     item.qty += Number(q.dataset.qty);
-    if(item.qty<=0)cart.splice(index,1);
+    if (item.qty <= 0) cart.splice(index, 1);
+
+    localStorage.setItem('avadress-cart', JSON.stringify(cart));
     renderCart();
   }
 
-  if(r){
-    const index=Number(r.dataset.remove);
-    if(index>=0&&index<cart.length){
-      cart.splice(index,1);
+  if (r) {
+    const index = Number(r.dataset.remove);
+    if (index >= 0 && index < cart.length) {
+      cart.splice(index, 1);
+
+      localStorage.setItem('avadress-cart', JSON.stringify(cart));
       renderCart();
     }
   }
