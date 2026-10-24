@@ -17,8 +17,8 @@ function addToCart(id) {
   const product = products.find(p => p.id === id);
   if (!product) return;
 
-  const sizeSelect = document.querySelector(`[data-size="${id}"]`);
-  const colorSelect = document.querySelector(`[data-color="${id}"]`);
+  const sizeSelect=document.querySelector(`[data-size="${id}"]`);
+  const colorSelect=document.querySelector(`[data-color="${id}"]`);
 
   const size = sizeSelect ? sizeSelect.value : "";
   const color = colorSelect ? colorSelect.value : product.color;
