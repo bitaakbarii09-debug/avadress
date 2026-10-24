@@ -121,7 +121,7 @@ document.getElementById("add-detail-cart").addEventListener("click", () => {
     image: product.image,
     size: size,
     color: color,
-    qty: 1
+    qty: 1,
   });
 
   localStorage.setItem("avadress-cart", JSON.stringify(cart));
