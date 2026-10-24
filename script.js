@@ -52,7 +52,7 @@ function renderCart() {
   const count = document.getElementById("cart-count");
   const total = document.getElementById("cart-total");
 
-  if (!container  !count  !total) return;
+  if (!container||!count||!total)return;
 
   count.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
 
