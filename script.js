@@ -84,6 +84,7 @@ function renderProducts(){
   if (sort === 'low') list.sort((a, b) => a.price - b.price);
   if (sort === 'high') list.sort((a, b) => b.price - a.price);
 
+ console.log("PRODUCT:", list);
 grid.innerHTML = list.map(p => `
     <article class="product-card">
       <div class="product-photo">
