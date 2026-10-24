@@ -56,7 +56,7 @@ function renderCart() {
 
   count.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
 
-  container.innerHTML = cart.map((item, index) =>`
+  container.innerHTML = cart.map((item, index)=>`
     <div class="cart-item">
       <div>
         <strong>${item.name}</strong>
