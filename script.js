@@ -41,11 +41,51 @@ function addToCart(id){
   renderCart(); showToast('به سبد خرید اضافه شد ♡');
 }
 function renderCart(){
-  document.getElementById('cart-count').textContent = new Intl.NumberFormat('fa-IR').format(cart.reduce((s,i)=>s+i.qty,0));
-  const container=document.getElementById('cart-items');
-  if(!cart.length){container.innerHTML='<div class="cart-empty">سبد خریدت هنوز خالیه ♡<br><small>از محصولات آوادرس چیزی انتخاب کن.</small></div>';}
-  else container.innerHTML=cart.map(i=>{const p=products.find(x=>x.id===i.id);return `<div class="cart-item"><img src="${p.image}" alt=""><div><h3>${p.name}</h3><p>${toman(p.price)}</p><div class="qty-controls"><button data-qty="-1" data-id="${p.id}" aria-label="کم کردن">−</button><span>${new Intl.NumberFormat('fa-IR').format(i.qty)}</span><button data-qty="1" data-id="${p.id}" aria-label="زیاد کردن">+</button></div></div><button class="remove-item" data-remove="${p.id}" aria-label="حذف">×</button></div>`}).join('');
-  document.getElementById('cart-total').textContent=toman(cart.reduce((s,i)=>s+products.find(p=>p.id===i.id).price*i.qty,0));
+  document.getElementById('cart-count').textContent =
+    new Intl.NumberFormat('fa-IR').format(
+      cart.reduce((sum, item) => sum + item.qty, 0)
+    );
+
+  const container = document.getElementById('cart-items');
+
+  if (!cart.length) {
+    container.innerHTML =
+      '<div class="cart-empty">سبد خریدت هنوز خالیه ♡<br><small>از محصولات آوادرس چیزی انتخاب کن.</small></div>';
+  } else {
+    container.innerHTML = cart.map((item, index) => {
+      const product = products.find(p => p.id === item.id);
+
+      if (!product) return '';
+
+      return 
+        <div class="cart-item">
+          <img src="${product.image}" alt="${product.name}">
+
+          <div>
+            <h3>${product.name}</h3>
+            <p>${toman(product.price)}</p>
+            <p>سایز: ${item.size || 'انتخاب نشده'}</p>
+            <p>رنگ: ${item.color || product.color}</p>
+
+            <div class="qty-controls">
+              <button data-qty="-1" data-index="${index}" aria-label="کم کردن">−</button>
+              <span>${new Intl.NumberFormat('fa-IR').format(item.qty)}</span>
+              <button data-qty="1" data-index="${index}" aria-label="زیاد کردن">+</button>
+            </div>
+          </div>
+
+          <button class="remove-item" data-remove="${index}" aria-label="حذف">×</button>
+        </div>
+      ;
+    }).join('');
+  }
+
+  document.getElementById('cart-total').textContent = toman(
+    cart.reduce((sum, item) => {
+      const product = products.find(p => p.id === item.id);
+      return sum + (product ? product.price * item.qty : 0);
+    }, 0)
+  );
 }
 const drawer=document.getElementById('cart-drawer'), overlay=document.getElementById('overlay');
 function openCart(){drawer.classList.add('open');overlay.classList.add('show');drawer.setAttribute('aria-hidden','false');}
@@ -56,10 +96,33 @@ document.getElementById('sort-select').addEventListener('change',renderProducts)
 document.getElementById('cart-open').addEventListener('click',openCart);
 document.getElementById('cart-close').addEventListener('click',closeCart);
 overlay.addEventListener('click',closeCart);
-document.getElementById('cart-items').addEventListener('click',e=>{
- const q=e.target.closest('[data-qty]');const r=e.target.closest('[data-remove]');
- if(q){const item=cart.find(i=>i.id===Number(q.dataset.id));item.qty+=Number(q.dataset.qty);if(item.qty<=0)cart.splice(cart.indexOf(item),1);renderCart();}
- if(r){const i=cart.findIndex(x=>x.id===Number(r.dataset.remove));if(i>=0)cart.splice(i,1);renderCart();}
+document.getElementById('cart-items').addEventListener('click', e => {
+  const quantityButton = e.target.closest('[data-qty]');
+  const removeButton = e.target.closest('[data-remove]');
+
+  if (quantityButton) {
+    const index = Number(quantityButton.dataset.index);
+    const item = cart[index];
+
+    if (!item) return;
+
+    item.qty += Number(quantityButton.dataset.qty);
+
+    if (item.qty <= 0) {
+      cart.splice(index, 1);
+    }
+
+    renderCart();
+  }
+
+  if (removeButton) {
+    const index = Number(removeButton.dataset.remove);
+
+    if (index >= 0 && index < cart.length) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+  }
 });
 document.getElementById('checkout-btn').addEventListener('click',()=>showToast(cart.length?'برای پرداخت واقعی باید درگاه پرداخت و بخش سفارش‌ها راه‌اندازی شود.':'سبد خریدت خالی است.'));
 const searchPanel=document.getElementById('search-panel');
