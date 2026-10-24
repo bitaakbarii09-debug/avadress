@@ -4,3 +4,38 @@
 @media(max-width:1000px){.header{padding:0 4%}.nav{gap:15px}.hero{padding-left:6%;padding-right:6%}.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.collection-card{height:290px}.footer-top{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.announcement{font-size:10px}.header{height:75px;gap:10px}.menu-toggle{display:block}.brand{font-size:23px}.brand span{font-size:8px}.nav{display:none;position:absolute;top:74px;right:0;left:0;padding:20px 7%;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;gap:12px}.nav.open{display:flex}.header-actions{gap:2px}.hero{grid-template-columns:1fr;padding:38px 7% 55px;gap:35px}.hero h1{font-size:48px}.hero-visual{min-height:420px;margin-left:10px}.hero-sticker{left:-15px}.trust-row{padding:20px 5%;display:grid;grid-template-columns:1fr;gap:14px}.trust-row>div>span{width:35px;text-align:center}.section{padding:65px 6%}.section-heading{align-items:start}.section-heading h2,.newsletter h2{font-size:25px}.section-heading>p{max-width:130px}.collection-grid{grid-template-columns:1fr;gap:13px}.collection-card{height:310px}.shop-tools{align-items:start;flex-direction:column}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}.quick-add{opacity:1;transform:none;font-size:10px;padding:8px}.product-info h3{font-size:12px}.price{font-size:11px}.editorial{grid-template-columns:1fr}.editorial-image{min-height:380px}.editorial-copy{padding:45px 7%}.newsletter{padding:65px 7%}.footer{padding:45px 6% 20px}.footer-top{gap:28px 20px}.footer-bottom{flex-direction:column;gap:5px}.search-panel{padding:20px 5%}.search-panel form{gap:5px}.search-panel .primary-btn{padding:12px}.cart-drawer{padding:20px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+.product-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.product-options label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+.product-options select {
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  color: #222;
+  font-size: 14px;
+}
+
+.product-options .quick-add {
+  display: block;
+  width: 100%;
+  min-height: 42px;
+  cursor: pointer;
+}
