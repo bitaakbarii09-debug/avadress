@@ -77,8 +77,7 @@ function renderProducts(){
   if(sort === 'high') list.sort((a,b)=>b.price-a.price);
 
   grid.innerHTML = list.map(p=>`
-<article class="product-card" onclick="event.preventDefault(); window.location.assign('product.html?id=${p.id}');" style="cursor:pointer;">
-      <div class="product-photo">
+<article class="product-card" style="cursor:pointer;">
         <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.opacity='.25'">
         ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
         <div class="product-options">
@@ -189,3 +188,13 @@ document.getElementById('newsletter-form').addEventListener('submit',e=>{
 
 renderProducts();
 renderCart();
+document.querySelectorAll('.product-card').forEach(card => {
+  card.addEventListener('click', function(event) {
+    if (event.target.closest('select, button, a, label')) return;
+
+    const link = card.querySelector('.product-link');
+    if (link) {
+      window.location.href = link.href;
+    }
+  });
+});
