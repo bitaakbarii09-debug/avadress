@@ -132,4 +132,6 @@ document.getElementById("add-detail-cart").addEventListener("click", () => {
   document.getElementById("add-detail-cart").textContent =
     "اضافه شد ✓";
 });
+  }
+}
   
