@@ -71,9 +71,9 @@ grid.innerHTML = list.map(p => `
           </div>
 
           <div class="price">
-            ${p.oldPrice
-  ? <span class="old-price">${new Intl.NumberFormat('fa-IR').format(p.oldPrice)}</span>
-  : ''}
+          ${p.oldPrice
+  ?`<span class="old-price">${new Intl.NumberFormat('fa-IR').format(p.oldPrice)}</span>`
+  :"}
             ${new Intl.NumberFormat('fa-IR').format(p.price)}
           </div>
         </div>
