@@ -6,130 +6,133 @@
   <title>جزئیات محصول | آوادرس</title>
   <link rel="stylesheet" href="style.css">
   <style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --pink: #e88cae;
+  --pink-dark: #ce638c;
+  --pink-light: #fff0f5;
+  --white: #ffffff;
+  --text: #49343d;
+  --muted: #927d86;
+  --border: #f3dce5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px 16px 50px;
+  direction: rtl;
+  font-family: 'Vazirmatn', sans-serif;
+  background: linear-gradient(145deg, #fff7fa, #fff 55%, #fff0f5);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.detail-page {
+  max-width: 850px;
+  margin: 25px auto;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: 0 12px 40px rgba(206, 99, 140, 0.10);
+}
+
+.detail-page h1 {
+  color: var(--pink-dark);
+  font-size: clamp(24px, 5vw, 34px);
+  font-weight: 800;
+  margin: 0 0 18px;
+  line-height: 1.8;
+}
+
+.detail-page p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 2;
+}
+
+.detail-page img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 22px;
+}
+
+.detail-page button,
+.detail-page select,
+.detail-page input {
+  font-family: inherit;
+  font-size: 15px;
+  border-radius: 13px;
+}
+
+.detail-page button {
+  border: 1px solid var(--pink);
+  background: var(--pink);
+  color: white;
+  padding: 12px 20px;
+  margin: 6px 4px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.detail-page button:hover {
+  background: var(--pink-dark);
+  transform: translateY(-1px);
+}
+
+.detail-page select,
+.detail-page input {
+  border: 1px solid var(--border);
+  background: #fff9fb;
+  color: var(--text);
+  padding: 11px 13px;
+  outline: none;
+  max-width: 100%;
+}
+
+.detail-page select:focus,
+.detail-page input:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 3px rgba(232, 140, 174, 0.15);
+}
+
+.detail-page a {
+  color: var(--pink-dark);
+  text-decoration: none;
+}
+
+.detail-page a:hover {
+  text-decoration: underline;
+}
+
+#cart-items {
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
   body {
-    background: #f7f3ef;
+    padding: 12px;
   }
 
   .detail-page {
-    max-width: 1000px;
-    margin: 35px auto;
-    padding: 30px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-    background: white;
-    border-radius: 24px;
-    box-shadow: 0 10px 35px rgba(65, 42, 30, 0.1);
+    padding: 18px;
+    margin: 12px auto;
+    border-radius: 22px;
   }
 
-  .detail-page img {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    border-radius: 18px;
-    background: #eee;
+  .detail-page button {
+    padding: 11px 15px;
   }
-
-  .detail-info {
-    padding: 10px;
-  }
-
-  .detail-info h1 {
-    font-size: 32px;
-    color: #30251f;
-    margin-bottom: 15px;
-  }
-
-  .detail-info p {
-    color: #776b63;
-    line-height: 2;
-    font-size: 16px;
-  }
-
-  .detail-info h2 {
-    color: #a45e43;
-    font-size: 28px;
-    margin: 24px 0;
-  }
-
-  .detail-info label {
-    display: block;
-    margin-top: 22px;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #45372f;
-  }
-
-  .detail-info select {
-    display: block;
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #ded4cc;
-    border-radius: 12px;
-    background: #fffdfb;
-    font-size: 16px;
-  }
-
-  .detail-info button {
-    display: block;
-    width: 100%;
-    margin-top: 28px;
-    padding: 16px;
-    border: none;
-    border-radius: 12px;
-    background: #30251f;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-  }
-
-  .detail-info button:hover {
-    background: #a45e43;
-    transform: translateY(-2px);
-  }
-
-  .detail-info a {
-    display: inline-block;
-    margin-top: 24px;
-    color: #a45e43;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  #detail-message {
-    color: #287448;
-    font-weight: bold;
-  }
-
-  @media (max-width: 650px) {
-    .detail-page {
-      grid-template-columns: 1fr;
-      margin: 14px;
-      padding: 16px;
-      gap: 18px;
-      border-radius: 18px;
-    }
-
-    .detail-page img {
-      max-height: 380px;
-    }
-
-    .detail-info {
-      padding: 4px;
-    }
-
-    .detail-info h1 {
-      font-size: 27px;
-    }
-
-    .detail-info h2 {
-      font-size: 24px;
-    }
-  }
-  </style>
+}
+    </style>
 </head>
 <body>
   <main id="product-detail" class="detail-page">
