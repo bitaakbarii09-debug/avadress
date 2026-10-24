@@ -13,7 +13,66 @@ const grid = document.getElementById('product-grid');
 const cart = [];
 let currentFilter = 'همه';
 let searchTerm = '';
+function addToCart(id) {
+  const product = products.find(p => p.id === id);
+  if (!product) return;
 
+  const sizeSelect = document.querySelector([data-size="${id}"]);
+  const colorSelect = document.querySelector([data-color="${id}"]);
+
+  const size = sizeSelect ? sizeSelect.value : "";
+  const color = colorSelect ? colorSelect.value : product.color;
+
+  if (!size) {
+    alert("لطفاً سایز لباس را انتخاب کن.");
+    return;
+  }
+
+  const existing = cart.find(
+    item => item.id === id && item.size === size && item.color === color
+  );
+
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({
+      ...product,
+      size,
+      color,
+      qty: 1
+    });
+  }
+
+  renderCart();
+  alert("لباس به سبد خرید اضافه شد.");
+}
+
+function renderCart() {
+  const container = document.getElementById("cart-items");
+  const count = document.getElementById("cart-count");
+  const total = document.getElementById("cart-total");
+
+  if (!container  !count  !total) return;
+
+  count.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+
+  container.innerHTML = cart.map((item, index) => 
+    <div class="cart-item">
+      <div>
+        <strong>${item.name}</strong>
+        <p>سایز: ${item.size} | رنگ: ${item.color}</p>
+        <p>${toman(item.price)} × ${item.qty}</p>
+      </div>
+      <button data-qty="-1" data-index="${index}">−</button>
+      <button data-qty="1" data-index="${index}">+</button>
+      <button data-remove="${index}">حذف</button>
+    </div>
+  ).join("");
+
+  total.textContent = toman(
+    cart.reduce((sum, item) => sum + item.price * item.qty, 0)
+  );
+}
 function renderProducts(){
   let list = products.filter(p =>
     (currentFilter === 'همه' || p.category === currentFilter) &&
