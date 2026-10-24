@@ -133,5 +133,4 @@ document.getElementById("add-detail-cart").addEventListener("click", () => {
     "اضافه شد ✓";
 });
   }
-}
   
