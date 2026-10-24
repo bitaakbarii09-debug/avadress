@@ -22,8 +22,8 @@ function renderProducts(){
 
   const sort = document.getElementById('sort-select').value;
 
-  if(sort === 'low') list.sort((a,b) => a.price - b.price);
-  if(sort === 'high') list.sort((a,b) => b.price - a.price);
+  if (sort === 'low') list.sort((a, b) => a.price - b.price);
+  if (sort === 'high') list.sort((a, b) => b.price - a.price);
 
   grid.innerHTML = list.map(p => 
     <article class="product-card">
@@ -72,8 +72,8 @@ function renderProducts(){
 
           <div class="price">
             ${p.oldPrice
-              ? <span class="old-price">${new Intl.NumberFormat('fa-IR').format(p.oldPrice)}</span>
-              : ''}
+  ? <span class="old-price">${new Intl.NumberFormat('fa-IR').format(p.oldPrice)}</span>
+  : ''}
             ${new Intl.NumberFormat('fa-IR').format(p.price)}
           </div>
         </div>
@@ -88,62 +88,6 @@ function renderProducts(){
   ).join('');
 
   document.getElementById('empty-state').hidden = list.length > 0;
-}
-function showToast(message){
-  const toast=document.getElementById('toast'); toast.textContent=message; toast.classList.add('show');
-  clearTimeout(showToast.timer); showToast.timer=setTimeout(()=>toast.classList.remove('show'),2300);
-}
-function addToCart(id){
-  const item=cart.find(i=>i.id===id);
-  if(item) item.qty++; else cart.push({id,qty:1});
-  renderCart(); showToast('به سبد خرید اضافه شد ♡');
-}
-function renderCart(){
-  document.getElementById('cart-count').textContent =
-    new Intl.NumberFormat('fa-IR').format(
-      cart.reduce((sum, item) => sum + item.qty, 0)
-    );
-
-  const container = document.getElementById('cart-items');
-
-  if (!cart.length) {
-    container.innerHTML =
-      '<div class="cart-empty">سبد خریدت هنوز خالیه ♡<br><small>از محصولات آوادرس چیزی انتخاب کن.</small></div>';
-  } else {
-    container.innerHTML = cart.map((item, index) => {
-      const product = products.find(p => p.id === item.id);
-
-      if (!product) return '';
-
-      return 
-        <div class="cart-item">
-          <img src="${product.image}" alt="${product.name}">
-
-          <div>
-            <h3>${product.name}</h3>
-            <p>${toman(product.price)}</p>
-            <p>سایز: ${item.size || 'انتخاب نشده'}</p>
-            <p>رنگ: ${item.color || product.color}</p>
-
-            <div class="qty-controls">
-              <button data-qty="-1" data-index="${index}" aria-label="کم کردن">−</button>
-              <span>${new Intl.NumberFormat('fa-IR').format(item.qty)}</span>
-              <button data-qty="1" data-index="${index}" aria-label="زیاد کردن">+</button>
-            </div>
-          </div>
-
-          <button class="remove-item" data-remove="${index}" aria-label="حذف">×</button>
-        </div>
-      ;
-    }).join('');
-  }
-
-  document.getElementById('cart-total').textContent = toman(
-    cart.reduce((sum, item) => {
-      const product = products.find(p => p.id === item.id);
-      return sum + (product ? product.price * item.qty : 0);
-    }, 0)
-  );
 }
 const drawer=document.getElementById('cart-drawer'), overlay=document.getElementById('overlay');
 function openCart(){drawer.classList.add('open');overlay.classList.add('show');drawer.setAttribute('aria-hidden','false');}
