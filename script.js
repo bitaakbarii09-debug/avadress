@@ -77,7 +77,7 @@ function renderProducts(){
   if(sort === 'high') list.sort((a,b)=>b.price-a.price);
 
   grid.innerHTML = list.map(p=>`
-    <article class="product-card" onclick="window.location.href='product.html?id=${p.id}'" style="cursor: pointer;">
+<article class="product-card" onclick="event.preventDefault(); window.location.assign('product.html?id=${p.id}');" style="cursor:pointer;">
       <div class="product-photo">
         <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.opacity='.25'">
         ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
