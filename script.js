@@ -94,15 +94,15 @@ grid.innerHTML = list.map(p => `
 
         <div class="product-options">
           <label>
-            سایز لباس
-            <select class="size-select" data-size="${p.id}">
-              <option value="">انتخاب سایز</option>
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-            </select>
-          </label>
+  سایز لباس
+  <select class="size-select" data-size="${p.id}">
+    <option value="">انتخاب سایز</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+  </select>
+</label>
 
           <label>
             رنگ لباس
