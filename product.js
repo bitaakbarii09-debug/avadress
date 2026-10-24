@@ -108,9 +108,28 @@ if (!product) {
       <a href="index.html">بازگشت به فروشگاه</a>
     </section>
   `;
+document.getElementById("add-detail-cart").addEventListener("click", () => {
+  const size = document.getElementById("product-size").value;
+  const color = document.getElementById("product-color").value;
 
-  document.getElementById("add-detail-cart").addEventListener("click", () => {
-    document.getElementById("detail-message").textContent =
-      "سایز و رنگ انتخاب شدند. برای ثبت سفارش، از فروشگاه اقدام کنید.";
+  const cart = JSON.parse(localStorage.getItem("avadress-cart") || "[]");
+
+  cart.push({
+    id: product.id,
+    name: product.name,
+    price: product.price,
+    image: product.image,
+    size: size,
+    color: color,
+    quantity: 1
   });
-}
+
+  localStorage.setItem("avadress-cart", JSON.stringify(cart));
+
+  document.getElementById("detail-message").textContent =
+    "محصول به سبد خرید اضافه شد! 🛒";
+
+  document.getElementById("add-detail-cart").textContent =
+    "اضافه شد ✓";
+});
+  
