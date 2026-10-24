@@ -56,7 +56,7 @@ function renderCart() {
 
   count.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
 
-  container.innerHTML = cart.map((item, index) => 
+  container.innerHTML = cart.map((item, index) =>`
     <div class="cart-item">
       <div>
         <strong>${item.name}</strong>
@@ -67,7 +67,7 @@ function renderCart() {
       <button data-qty="1" data-index="${index}">+</button>
       <button data-remove="${index}">حذف</button>
     </div>
-  ).join("");
+ `).join("");
 
   total.textContent = toman(
     cart.reduce((sum, item) => sum + item.price * item.qty, 0)
