@@ -39,3 +39,10 @@
   min-height: 42px;
   cursor: pointer;
 }
+.product-options {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  overflow: visible !important;
+}
