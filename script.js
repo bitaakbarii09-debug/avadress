@@ -15,20 +15,78 @@ let currentFilter = 'همه';
 let searchTerm = '';
 
 function renderProducts(){
-  let list = products.filter(p => (currentFilter === 'همه' || p.category === currentFilter) && p.name.includes(searchTerm));
+  let list = products.filter(p =>
+    (currentFilter === 'همه' || p.category === currentFilter) &&
+    p.name.includes(searchTerm)
+  );
+
   const sort = document.getElementById('sort-select').value;
-  if(sort === 'low') list.sort((a,b)=>a.price-b.price);
-  if(sort === 'high') list.sort((a,b)=>b.price-a.price);
-  grid.innerHTML = list.map(p => `
+
+  if(sort === 'low') list.sort((a,b) => a.price - b.price);
+  if(sort === 'high') list.sort((a,b) => b.price - a.price);
+
+  grid.innerHTML = list.map(p => 
     <article class="product-card">
-      <div class="product-photo"><img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.opacity='.25'">
-        ${p.badge ? `<span class="badge">${p.badge}</span>` : ''}
-        <button class="quick-add" data-add="${p.id}">+ افزودن به سبد خرید</button>
+      <div class="product-photo">
+        <img src="${p.image}" alt="${p.name}" loading="lazy"
+             onerror="this.style.opacity='.25'">
+
+        ${p.badge ? <span class="badge">${p.badge}</span> : ''}
+
+        <div class="product-options">
+          <label>
+            سایز لباس
+            <select class="size-select" data-size="${p.id}">
+              <option value="">انتخاب سایز</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+          </label>
+
+          <label>
+            رنگ لباس
+            <select class="color-select" data-color="${p.id}">
+              <option value="${p.color}">${p.color}</option>
+              <option value="مشکی">مشکی</option>
+              <option value="سفید">سفید</option>
+              <option value="کرم">کرم</option>
+              <option value="صورتی">صورتی</option>
+              <option value="قهوه‌ای">قهوه‌ای</option>
+            </select>
+          </label>
+
+          <button class="quick-add" data-add="${p.id}">
+            + افزودن به سبد خرید
+          </button>
+        </div>
       </div>
-      <div class="product-info"><div class="product-meta"><div><h3>${p.name}</h3><p>${p.category} · رنگ ${p.color}</p></div>
-      <div class="price">${p.oldPrice ? `<span class="old-price">${new Intl.NumberFormat('fa-IR').format(p.oldPrice)}</span>` : ''}${new Intl.NumberFormat('fa-IR').format(p.price)}</div></div>
-      <div class="swatches"><span style="background:#d8c4ad"></span><span style="background:#34302e"></span><span style="background:#b77e72"></span></div></div>
-    </article>`).join('');
+
+      <div class="product-info">
+        <div class="product-meta">
+          <div>
+            <h3>${p.name}</h3>
+            <p>${p.category} · رنگ ${p.color}</p>
+          </div>
+
+          <div class="price">
+            ${p.oldPrice
+              ? <span class="old-price">${new Intl.NumberFormat('fa-IR').format(p.oldPrice)}</span>
+              : ''}
+            ${new Intl.NumberFormat('fa-IR').format(p.price)}
+          </div>
+        </div>
+
+        <div class="swatches">
+          <span style="background:#d8c4ad"></span>
+          <span style="background:#34302e"></span>
+          <span style="background:#b77e72"></span>
+        </div>
+      </div>
+    </article>
+  ).join('');
+
   document.getElementById('empty-state').hidden = list.length > 0;
 }
 function showToast(message){
