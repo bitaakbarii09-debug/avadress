@@ -11,7 +11,7 @@ const products = [
 
 const toman = n => new Intl.NumberFormat('fa-IR').format(n) + ' تومان';
 const grid = document.getElementById('product-grid');
-const cart = [];
+const cart = JSON.parse(localStorage.getItem("avadress-cart") || "[]");
 let currentFilter = 'همه';
 let searchTerm = '';
 
