@@ -31,7 +31,7 @@ grid.innerHTML = list.map(p => `
         <img src="${p.image}" alt="${p.name}" loading="lazy"
              onerror="this.style.opacity='.25'">
 
-    ${p.badge?`<span class="badge">${p.badge}</span>`: ''}
+    ${p.badge ?`<span class="badge">${p.badge}</span>`:''}
 
         <div class="product-options">
           <label>
