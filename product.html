@@ -9,13 +9,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --pink: #e88cae;
-  --pink-dark: #ce638c;
-  --pink-light: #fff0f5;
-  --white: #ffffff;
-  --text: #49343d;
-  --muted: #927d86;
-  --border: #f3dce5;
+  --pink: #e88aaa;
+  --pink-dark: #cf668d;
+  --pink-soft: #fff1f6;
+  --pink-border: #f3d5e1;
+  --text: #3f3036;
+  --muted: #9a858d;
+  --white: #fff;
 }
 
 * {
@@ -24,115 +24,298 @@
 
 body {
   margin: 0;
-  padding: 24px 16px 50px;
-  direction: rtl;
-  font-family: 'Vazirmatn', sans-serif;
-  background: linear-gradient(145deg, #fff7fa, #fff 55%, #fff0f5);
-  color: var(--text);
   min-height: 100vh;
+  padding: 35px 16px 60px;
+  direction: rtl;
+  font-family: "Vazirmatn", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top right, #ffe3ed 0, transparent 35%),
+    linear-gradient(135deg, #fff8fb, #fff);
 }
 
 .detail-page {
-  max-width: 850px;
-  margin: 25px auto;
-  padding: 28px;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid var(--border);
+  width: min(1050px, 100%);
+  margin: auto;
+  padding: 35px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+
+  background: rgba(255,255,255,.96);
+  border: 1px solid var(--pink-border);
+  border-radius: 32px;
+
+  box-shadow:
+    0 25px 70px rgba(190, 91, 125, .12);
+}
+
+/* تصویر محصول */
+
+.product-image-box {
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background: linear-gradient(145deg, #fff4f8, #fff);
   border-radius: 28px;
-  box-shadow: 0 12px 40px rgba(206, 99, 140, 0.10);
 }
 
-.detail-page h1 {
+.product-image-box img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  border-radius: 24px;
+
+  box-shadow: 0 18px 45px rgba(150, 80, 105, .12);
+}
+
+/* اطلاعات */
+
+.detail-info {
+  padding: 10px;
+}
+
+.product-label {
+  display: inline-block;
+  padding: 7px 15px;
+  margin-bottom: 15px;
+
+  background: var(--pink-soft);
   color: var(--pink-dark);
-  font-size: clamp(24px, 5vw, 34px);
-  font-weight: 800;
-  margin: 0 0 18px;
-  line-height: 1.8;
+
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
 }
 
-.detail-page p {
+.detail-info h1 {
+  margin: 0 0 12px;
+
+  color: #3d2d34;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.product-description {
+  margin: 0 0 20px;
+
   color: var(--muted);
   font-size: 15px;
   line-height: 2;
 }
 
-.detail-page img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 20px auto;
-  border-radius: 22px;
-}
+.price {
+  margin: 20px 0 30px;
 
-.detail-page button,
-.detail-page select,
-.detail-page input {
-  font-family: inherit;
-  font-size: 15px;
-  border-radius: 13px;
-}
-
-.detail-page button {
-  border: 1px solid var(--pink);
-  background: var(--pink);
-  color: white;
-  padding: 12px 20px;
-  margin: 6px 4px;
-  cursor: pointer;
-  font-weight: 700;
-  transition: 0.2s ease;
-}
-
-.detail-page button:hover {
-  background: var(--pink-dark);
-  transform: translateY(-1px);
-}
-
-.detail-page select,
-.detail-page input {
-  border: 1px solid var(--border);
-  background: #fff9fb;
-  color: var(--text);
-  padding: 11px 13px;
-  outline: none;
-  max-width: 100%;
-}
-
-.detail-page select:focus,
-.detail-page input:focus {
-  border-color: var(--pink);
-  box-shadow: 0 0 0 3px rgba(232, 140, 174, 0.15);
-}
-
-.detail-page a {
   color: var(--pink-dark);
+  font-size: 25px;
+  font-weight: 800;
+}
+
+/* گروه انتخاب */
+
+.option-group {
+  margin: 25px 0;
+}
+
+.option-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 13px;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.option-title span:last-child {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* رنگ‌ها */
+
+.color-options {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.color-choice {
+  width: 38px;
+  height: 38px;
+
+  padding: 0;
+  margin: 0;
+
+  border: 3px solid white;
+  border-radius: 50%;
+
+  background: var(--color);
+  box-shadow: 0 0 0 1px #ead6de;
+
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.color-choice:hover {
+  transform: scale(1.08);
+}
+
+.color-choice.selected {
+  box-shadow:
+    0 0 0 2px var(--pink),
+    0 5px 15px rgba(210, 90, 130, .2);
+}
+
+/* سایز */
+
+.size-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.size-choice {
+  min-width: 54px;
+
+  padding: 11px 15px;
+
+  border: 1px solid var(--pink-border);
+  border-radius: 12px;
+
+  background: white;
+  color: var(--text);
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.size-choice:hover {
+  border-color: var(--pink);
+  color: var(--pink-dark);
+}
+
+.size-choice.selected {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: white;
+
+  box-shadow: 0 7px 18px rgba(215, 102, 143, .2);
+}
+
+/* دکمه سبد */
+
+.add-cart {
+  width: 100%;
+
+  margin-top: 30px;
+  padding: 16px 20px;
+
+  border: 0;
+  border-radius: 15px;
+
+  background: linear-gradient(
+    135deg,
+    #ee9bb8,
+    #d96f97
+  );
+
+  color: white;
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow: 0 12px 25px rgba(210, 92, 132, .22);
+
+  transition: .2s ease;
+}
+
+.add-cart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(210, 92, 132, .28);
+}
+
+.add-cart:active {
+  transform: translateY(0);
+}
+
+.detail-message {
+  min-height: 25px;
+  margin: 14px 0;
+
+  color: var(--pink-dark);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.back-link {
+  display: inline-block;
+
+  margin-top: 8px;
+
+  color: var(--muted);
   text-decoration: none;
+  font-size: 14px;
 }
 
-.detail-page a:hover {
-  text-decoration: underline;
+.back-link:hover {
+  color: var(--pink-dark);
 }
 
-#cart-items {
-  margin-top: 20px;
-}
+/* موبایل */
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
+
   body {
-    padding: 12px;
+    padding: 15px 10px 40px;
   }
 
   .detail-page {
+    grid-template-columns: 1fr;
+    gap: 25px;
+
     padding: 18px;
-    margin: 12px auto;
-    border-radius: 22px;
+
+    border-radius: 24px;
   }
 
-  .detail-page button {
-    padding: 11px 15px;
+  .product-image-box {
+    min-height: auto;
+    padding: 12px;
+  }
+
+  .product-image-box img {
+    max-height: 430px;
+  }
+
+  .detail-info {
+    padding: 5px;
+  }
+
+  .detail-info h1 {
+    font-size: 28px;
+  }
+
+  .price {
+    font-size: 22px;
   }
 }
-    </style>
+  </style>
 </head>
 <body>
   <main id="product-detail" class="detail-page">
