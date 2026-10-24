@@ -85,7 +85,7 @@ grid.innerHTML = list.map(p => `
         </div>
       </div>
     </article>
-  ).join('');
+  `).join('');
 
   document.getElementById('empty-state').hidden = list.length > 0;
 }
