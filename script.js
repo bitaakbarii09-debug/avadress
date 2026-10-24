@@ -25,7 +25,7 @@ function renderProducts(){
   if (sort === 'low') list.sort((a, b) => a.price - b.price);
   if (sort === 'high') list.sort((a, b) => b.price - a.price);
 
-grid.innerHTML = list.map(p => 
+grid.innerHTML = list.map(p => `
     <article class="product-card">
       <div class="product-photo">
         <img src="${p.image}" alt="${p.name}" loading="lazy"
