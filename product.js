@@ -160,6 +160,7 @@ if (container) {
 serviceSection.className = "service-cards";
 
 serviceSection.innerHTML = 
+serviceSection.innerHTML = 
   <div class="service-card">
     <span class="service-icon">🚚</span>
     <strong>ارسال سفارش</strong>
@@ -171,6 +172,19 @@ serviceSection.innerHTML =
     <strong>تضمین کیفیت</strong>
     <p>توجه به کیفیت محصولات</p>
   </div>
+
+  <div class="service-card">
+    <span class="service-icon">💗</span>
+    <strong>پشتیبانی</strong>
+    <p>پاسخ‌گویی به مشتریان</p>
+  </div>
+
+  <div class="service-card">
+    <span class="service-icon">📦</span>
+    <strong>بسته‌بندی</strong>
+    <p>آماده‌سازی سفارش</p>
+  </div>
+;
 
   <div class="service-card">
     <span class="service-icon">💗</span>
