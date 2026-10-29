@@ -156,48 +156,35 @@ if (container) {
       document.getElementById("detail-message").textContent =
         "محصول به سبد خرید اضافه شد! 🛍️";
     });
-    const serviceSection = document.createElement("section");
-serviceSection.className = "service-cards";
-    
-serviceSection.innerHTML =`
-  <div class="service-card">
-    <span class="service-icon">🚚</span>
-    <strong>ارسال سفارش</strong>
-    <p>اطلاعات ارسال سفارش</p>
-  </div>
+  const serviceSection = document.createElement("section");
+    serviceSection.className = "service-cards";
 
-  <div class="service-card">
-    <span class="service-icon">✨</span>
-    <strong>تضمین کیفیت</strong>
-    <p>توجه به کیفیت محصولات</p>
-  </div>
+    serviceSection.innerHTML =`
+      <div class="service-card">
+        <span class="service-icon">🚚</span>
+        <strong>ارسال سفارش</strong>
+        <p>اطلاعات ارسال سفارش</p>
+      </div>
 
-  <div class="service-card">
-    <span class="service-icon">💗</span>
-    <strong>پشتیبانی</strong>
-    <p>پاسخ‌گویی به مشتریان</p>
-  </div>
+      <div class="service-card">
+        <span class="service-icon">✨</span>
+        <strong>تضمین کیفیت</strong>
+        <p>توجه به کیفیت محصولات</p>
+      </div>
 
-  <div class="service-card">
-    <span class="service-icon">📦</span>
-    <strong>بسته‌بندی</strong>
-    <p>آماده‌سازی سفارش</p>
-  </div>
-;
+      <div class="service-card">
+        <span class="service-icon">💗</span>
+        <strong>پشتیبانی</strong>
+        <p>پاسخ‌گویی به مشتریان</p>
+      </div>
 
-  <div class="service-card">
-    <span class="service-icon">💗</span>
-    <strong>پشتیبانی</strong>
-    <p>پاسخ‌گویی به مشتریان</p>
-  </div>
+      <div class="service-card">
+        <span class="service-icon">📦</span>
+        <strong>بسته‌بندی</strong>
+        <p>آماده‌سازی سفارش</p>
+      </div>
+    ;
 
-  <div class="service-card">
-    <span class="service-icon">📦</span>
-    <strong>بسته‌بندی</strong>
-    <p>آماده‌سازی سفارش</p>
-  </div>
-;
-
-container.appendChild(serviceSection);
+    container.appendChild(serviceSection);
   }
-              }
+}
