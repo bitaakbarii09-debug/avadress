@@ -56,15 +56,15 @@ if (container) {
             <span id="selected-color">${product.colors[0]}</span>
           </div>
           <div class="color-options">
-            ${product.colors.map((color, index) =>`
-              <button type="button"
-                class="color-choice ${index === 0 ? "selected" : ""}"
-                data-color="${color}"
-                title="${color}"
-                style="--color:${colorClass(color)}">
-              </button>
-            `).join("")}
-          </div>
+  ${product.colors.map((color, index) =>` 
+    <button type="button"
+      class="color-choice ${index === 0 ? "selected" : ""}"
+      data-color="${color}"
+      title="${color}"
+      style="--color:${colorClass(color)}">
+    </button>
+  `).join("")}
+</div>
         </div>
 
         <div class="option-group">
@@ -72,15 +72,15 @@ if (container) {
             <span>سایز</span>
             <span id="selected-size">${product.sizes[0]}</span>
           </div>
-          <div class="size-options">
-          ${product.sizes.map((size, index) =>`
-              <button type="button"
-                class="size-choice ${index === 0 ? "selected" : ""}"
-                data-size="${size}">
-                ${size}
-              </button>
-           `).join("")}
-          </div>
+         <div class="size-options">
+  ${product.sizes.map((size, index) =>` 
+    <button type="button"
+      class="size-choice ${index === 0 ? "selected" : ""}"
+      data-size="${size}">
+      ${size}
+    </button>
+  `).join("")}
+</div>
         </div>
 
         <button id="add-detail-cart" class="add-cart">
