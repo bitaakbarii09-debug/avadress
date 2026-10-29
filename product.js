@@ -24,31 +24,26 @@ function colorClass(color) {
     "صورتی": "#e9a3ba",
     "سبز": "#91aa88"
   };
-
   return colors[color] || "#eeeeee";
 }
 
 if (container) {
   if (!product) {
-    container.innerHTML = `
+    container.innerHTML = 
       <section class="not-found">
         <h1>محصول پیدا نشد!</h1>
         <a href="index.html">بازگشت به فروشگاه</a>
       </section>
-    `;
+    ;
   } else {
-
-    container.innerHTML = `
+    container.innerHTML = 
       <div class="product-image-box">
         <img src="${product.image}" alt="${product.name}">
       </div>
 
       <section class="detail-info">
-
         <span class="product-label">محصول جدید</span>
-
         <h1>${product.name}</h1>
-
         <p class="product-description">${product.description}</p>
 
         <div class="price">
@@ -60,11 +55,9 @@ if (container) {
             <span>رنگ</span>
             <span id="selected-color">${product.colors[0]}</span>
           </div>
-
           <div class="color-options">
-            ${product.colors.map((color, index) => `
-              <button
-                type="button"
+            ${product.colors.map((color, index) => 
+              <button type="button"
                 class="color-choice ${index === 0 ? "selected" : ""}"
                 data-color="${color}"
                 title="${color}"
@@ -79,16 +72,14 @@ if (container) {
             <span>سایز</span>
             <span id="selected-size">${product.sizes[0]}</span>
           </div>
-
           <div class="size-options">
-            ${product.sizes.map((size, index) => `
-              <button
-                type="button"
+          ${product.sizes.map((size, index) => 
+              <button type="button"
                 class="size-choice ${index === 0 ? "selected" : ""}"
                 data-size="${size}">
                 ${size}
               </button>
-            `).join("")}
+            ).join("")}
           </div>
         </div>
 
@@ -102,6 +93,31 @@ if (container) {
           ← بازگشت به فروشگاه
         </a>
 
+        <section class="service-cards">
+          <div class="service-card">
+            <span class="service-icon">🚚</span>
+            <strong>ارسال سفارش</strong>
+            <p>اطلاعات ارسال سفارش</p>
+          </div>
+
+          <div class="service-card">
+            <span class="service-icon">✨</span>
+            <strong>تضمین کیفیت</strong>
+            <p>توجه به کیفیت محصولات</p>
+          </div>
+
+          <div class="service-card">
+            <span class="service-icon">💗</span>
+            <strong>پشتیبانی</strong>
+            <p>پاسخ‌گویی به مشتریان</p>
+          </div>
+
+          <div class="service-card">
+            <span class="service-icon">📦</span>
+            <strong>بسته‌بندی</strong>
+            <p>آماده‌سازی سفارش</p>
+          </div>
+        </section>
       </section>
     `;
 
@@ -114,7 +130,6 @@ if (container) {
           .forEach(item => item.classList.remove("selected"));
 
         button.classList.add("selected");
-
         selectedColor = button.dataset.color;
         document.getElementById("selected-color").textContent = selectedColor;
       });
@@ -126,17 +141,13 @@ if (container) {
           .forEach(item => item.classList.remove("selected"));
 
         button.classList.add("selected");
-
         selectedSize = button.dataset.size;
         document.getElementById("selected-size").textContent = selectedSize;
       });
     });
 
     document.getElementById("add-detail-cart").addEventListener("click", () => {
-
-      const cart = JSON.parse(
-        localStorage.getItem("avadress-cart") || "[]"
-      );
+      const cart = JSON.parse(localStorage.getItem("avadress-cart") || "[]");
 
       cart.push({
         id: product.id,
@@ -148,43 +159,10 @@ if (container) {
         qty: 1
       });
 
-      localStorage.setItem(
-        "avadress-cart",
-        JSON.stringify(cart)
-      );
+      localStorage.setItem("avadress-cart", JSON.stringify(cart));
 
       document.getElementById("detail-message").textContent =
         "محصول به سبد خرید اضافه شد! 🛍️";
     });
-  const serviceSection = document.createElement("section");
-    serviceSection.className = "service-cards";
-
-    serviceSection.innerHTML =`
-      <div class="service-card">
-        <span class="service-icon">🚚</span>
-        <strong>ارسال سفارش</strong>
-        <p>اطلاعات ارسال سفارش</p>
-      </div>
-
-      <div class="service-card">
-        <span class="service-icon">✨</span>
-        <strong>تضمین کیفیت</strong>
-        <p>توجه به کیفیت محصولات</p>
-      </div>
-
-      <div class="service-card">
-        <span class="service-icon">💗</span>
-        <strong>پشتیبانی</strong>
-        <p>پاسخ‌گویی به مشتریان</p>
-      </div>
-
-      <div class="service-card">
-        <span class="service-icon">📦</span>
-        <strong>بسته‌بندی</strong>
-        <p>آماده‌سازی سفارش</p>
-      </div>`
-    ;
-
-    container.insertAdjacentElement("afterend", serviceSection);
   }
 }
