@@ -36,7 +36,7 @@ if (container) {
       </section>`
     ;
   } else {
-    container.innerHTML = 
+    container.innerHTML =` 
       <div class="product-image-box">
         <img src="${product.image}" alt="${product.name}">
       </div>
