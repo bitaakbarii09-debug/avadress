@@ -182,7 +182,7 @@ if (container) {
         <span class="service-icon">📦</span>
         <strong>بسته‌بندی</strong>
         <p>آماده‌سازی سفارش</p>
-      </div>
+      </div>`
     ;
 
     container.appendChild(serviceSection);
