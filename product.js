@@ -56,7 +56,7 @@ if (container) {
             <span id="selected-color">${product.colors[0]}</span>
           </div>
           <div class="color-options">
-            ${product.colors.map((color, index) => 
+            ${product.colors.map((color, index) =>`
               <button type="button"
                 class="color-choice ${index === 0 ? "selected" : ""}"
                 data-color="${color}"
@@ -73,13 +73,13 @@ if (container) {
             <span id="selected-size">${product.sizes[0]}</span>
           </div>
           <div class="size-options">
-          ${product.sizes.map((size, index) => 
+          ${product.sizes.map((size, index) =>`
               <button type="button"
                 class="size-choice ${index === 0 ? "selected" : ""}"
                 data-size="${size}">
                 ${size}
               </button>
-            ).join("")}
+           `).join("")}
           </div>
         </div>
 
