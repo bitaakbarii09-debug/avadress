@@ -106,11 +106,11 @@ if (container) {
     <p>مشاهده جزئیات</p>
   </button>
 
-  <button class="service-card" data-info="برای پرسیدن سؤال یا دریافت راهنمایی، از راه ارتباطی فروشگاه استفاده کنید.">
-    <span class="service-icon">💗</span>
-    <strong>پشتیبانی</strong>
-    <p>مشاهده جزئیات</p>
-  </button>
+ <button class="service-card" data-info="برای پرسیدن سؤال یا پیگیری سفارش، از طریق واتساپ با ما در ارتباط باشید.">
+  <span class="service-icon">💗</span>
+  <strong>پشتیبانی واتساپ</strong>
+  <p>ارتباط با ما</p>
+</button>
 
   <button class="service-card" data-info="سفارش‌ها با دقت برای آماده‌سازی و ارسال بسته‌بندی می‌شوند.">
     <span class="service-icon">📦</span>
@@ -173,6 +173,10 @@ if (container) {
     });
     document.querySelectorAll(".service-card").forEach(card => {
   card.addEventListener("click", () => {
+    if (card.textContent.includes("پشتیبانی")) {
+      window.open("https://wa.me/989962096558", "_blank");
+      return;
+    }
     document.getElementById("service-popup-text").textContent =
       card.dataset.info;
 
