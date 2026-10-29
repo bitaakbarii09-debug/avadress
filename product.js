@@ -85,18 +85,7 @@ if (container) {
 
         <button id="add-detail-cart" class="add-cart">
           افزودن به سبد خرید
-        document.querySelectorAll(".service-card").forEach(card => {
-  card.addEventListener("click", () => {
-    document.getElementById("service-popup-text").textContent =
-      card.dataset.info;
-
-    document.getElementById("service-popup").classList.add("show");
-  });
-});
-
-document.getElementById("close-service-popup").addEventListener("click", () => {
-  document.getElementById("service-popup").classList.remove("show");
-});</button>
+      </button>
 
         <p id="detail-message" class="detail-message" role="status"></p>
 
@@ -182,5 +171,17 @@ document.getElementById("close-service-popup").addEventListener("click", () => {
       document.getElementById("detail-message").textContent =
         "محصول به سبد خرید اضافه شد! 🛍️";
     });
+    document.querySelectorAll(".service-card").forEach(card => {
+  card.addEventListener("click", () => {
+    document.getElementById("service-popup-text").textContent =
+      card.dataset.info;
+
+    document.getElementById("service-popup").classList.add("show");
+  });
+});
+
+document.getElementById("close-service-popup").addEventListener("click", () => {
+  document.getElementById("service-popup").classList.remove("show");
+});
   }
 }
