@@ -84,7 +84,7 @@ if (container) {
         </div>
 
         <button id="add-detail-cart" class="add-cart">
-          افزودن به سبد خرید
+           افزودن به سبد خرید
       </button>
 
         <p id="detail-message" class="detail-message" role="status"></p>
