@@ -331,19 +331,22 @@ body {
 .service-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 14px;
   margin-top: 24px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .service-card {
-  background: #fff;
-  border: 1px solid #f5dce5;
-  border-radius: 16px;
-  padding: 16px 10px;
+  background: #fff0f6;
+  border: 1px solid #f3c6d8;
+  border-radius: 18px;
+  padding: 18px 10px;
   text-align: center;
   color: #75485a;
   font-size: 13px;
   line-height: 1.9;
+  box-shadow: 0 4px 14px rgba(220, 150, 175, 0.2);
 }
 
 .service-card .service-icon {
@@ -351,7 +354,6 @@ body {
   font-size: 25px;
   margin-bottom: 6px;
 }
-
 @media (max-width: 480px) {
   .service-cards {
     gap: 8px;
