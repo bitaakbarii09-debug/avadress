@@ -61,5 +61,50 @@ a{text-decoration:none;color:inherit}
 .cart-actions button{border:1px solid var(--line);background:white;border-radius:7px;padding:5px 9px}
 .cart-footer{padding:18px;border-top:1px solid var(--line)}
 .full{width:100%;margin-top:14px;text-align:center}
+.service-card {
+  cursor: pointer;
+  font-family: inherit;
+  width: 100%;
+  background: #fff0f6;
+  border: 1px solid #f3c6d8;
+  border-radius: 18px;
+  padding: 18px 10px;
+  text-align: center;
+  color: #75485a;
+  box-shadow: 0 4px 14px rgba(220,150,175,.2);
+}
+
+.service-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.service-popup.show {
+  display: flex;
+}
+
+.service-popup-content {
+  background: #fff0f6;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 350px;
+  width: 100%;
+  text-align: center;
+  color: #75485a;
+}
+
+#close-service-popup {
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+  color: #75485a;
+}
 @media(max-width:900px){.product-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.nav{display:none}.header-inner{gap:10px}.product-grid{grid-template-columns:1fr}.product-photo img{height:330px}.product-photo{min-height:330px}.newsletter form{flex-direction:column}.newsletter button{padding:12px}}
