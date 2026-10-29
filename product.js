@@ -185,6 +185,6 @@ if (container) {
       </div>`
     ;
 
-    container.appendChild(serviceSection);
+    container.insertAdjacentElement("afterend", serviceSection);
   }
 }
