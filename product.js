@@ -55,15 +55,15 @@ if (container) {
             <span>رنگ</span>
             <span id="selected-color">${product.colors[0]}</span>
           </div>
-          <div class="color-options">
-  ${product.colors.map((color, index) =>` 
-    <button type="button"
-      class="color-choice ${index === 0 ? "selected" : ""}"
-      data-color="${color}"
-      title="${color}"
-      style="--color:${colorClass(color)}">
-    </button>
-  `).join("")}
+         <div class="color-options">
+  ${product.colors.map((color, index) =>
+    '<button type="button" class="color-choice ' +
+    (index === 0 ? 'selected' : '') +
+    '" data-color="' + color +
+    '" title="' + color +
+    '" style="--color:' + colorClass(color) +
+    '"></button>'
+  ).join("")}
 </div>
         </div>
 
@@ -72,14 +72,14 @@ if (container) {
             <span>سایز</span>
             <span id="selected-size">${product.sizes[0]}</span>
           </div>
-         <div class="size-options">
-  ${product.sizes.map((size, index) =>` 
-    <button type="button"
-      class="size-choice ${index === 0 ? "selected" : ""}"
-      data-size="${size}">
-      ${size}
-    </button>
-  `).join("")}
+        <div class="size-options">
+  ${product.sizes.map((size, index) =>
+    '<button type="button" class="size-choice ' +
+    (index === 0 ? 'selected' : '') +
+    '" data-size="' + size + '">' +
+    size +
+    '</button>'
+  ).join("")}
 </div>
         </div>
 
