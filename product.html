@@ -285,6 +285,19 @@ body {
     padding: 15px 10px 40px;
   }
 
+
+.back-link:hover {
+  color: var(--pink-dark);
+}
+
+/* موبایل */
+
+@media (max-width: 750px) {
+
+  body {
+    padding: 15px 10px 40px;
+  }
+
   .detail-page {
     grid-template-columns: 1fr;
     gap: 25px;
@@ -313,6 +326,39 @@ body {
 
   .price {
     font-size: 22px;
+  }
+  /* کارت‌های خدمات آوادرس */
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.service-card {
+  background: #fff;
+  border: 1px solid #f5dce5;
+  border-radius: 16px;
+  padding: 16px 10px;
+  text-align: center;
+  color: #75485a;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.service-card .service-icon {
+  display: block;
+  font-size: 25px;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 480px) {
+  .service-cards {
+    gap: 8px;
+  }
+
+  .service-card {
+    padding: 12px 6px;
   }
 }
   </style>
