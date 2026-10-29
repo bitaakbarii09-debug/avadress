@@ -185,6 +185,6 @@ serviceSection.innerHTML =
   </div>
 ;
 
-document.body.appendChild(serviceSection);
+container.appendChild(serviceSection);
   }
               }
