@@ -360,6 +360,47 @@ body {
   .service-card {
     padding: 12px 6px;
   }
+  .service-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 30px auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.service-card {
+  background: #fff7fa;
+  border: 1px solid #f3d6e1;
+  border-radius: 18px;
+  padding: 20px 12px;
+  text-align: center;
+  color: #75485a;
+  box-shadow: 0 4px 14px rgba(220, 150, 175, 0.12);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.service-card .service-icon {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.service-card p {
+  margin: 6px 0 0;
+  color: #88717b;
+  font-size: 12px;
+}
+
+@media (max-width: 480px) {
+  .service-cards {
+    gap: 8px;
+  }
+
+  .service-card {
+    padding: 14px 6px;
+  }
 }
   </style>
 </head>
