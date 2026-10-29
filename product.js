@@ -85,7 +85,18 @@ if (container) {
 
         <button id="add-detail-cart" class="add-cart">
           افزودن به سبد خرید
-        </button>
+        document.querySelectorAll(".service-card").forEach(card => {
+  card.addEventListener("click", () => {
+    document.getElementById("service-popup-text").textContent =
+      card.dataset.info;
+
+    document.getElementById("service-popup").classList.add("show");
+  });
+});
+
+document.getElementById("close-service-popup").addEventListener("click", () => {
+  document.getElementById("service-popup").classList.remove("show");
+});</button>
 
         <p id="detail-message" class="detail-message" role="status"></p>
 
@@ -93,31 +104,38 @@ if (container) {
           ← بازگشت به فروشگاه
         </a>
 
-        <section class="service-cards">
-          <div class="service-card">
-            <span class="service-icon">🚚</span>
-            <strong>ارسال سفارش</strong>
-            <p>اطلاعات ارسال سفارش</p>
-          </div>
+      <section class="service-cards">
+  <button class="service-card" data-info="برای اطلاع از روش و زمان ارسال سفارش، با پشتیبانی فروشگاه تماس بگیرید.">
+    <span class="service-icon">🚚</span>
+    <strong>ارسال سفارش</strong>
+    <p>مشاهده جزئیات</p>
+  </button>
 
-          <div class="service-card">
-            <span class="service-icon">✨</span>
-            <strong>تضمین کیفیت</strong>
-            <p>توجه به کیفیت محصولات</p>
-          </div>
+  <button class="service-card" data-info="ما تلاش می‌کنیم محصولات باکیفیت و مناسب به شما ارائه کنیم.">
+    <span class="service-icon">✨</span>
+    <strong>تضمین کیفیت</strong>
+    <p>مشاهده جزئیات</p>
+  </button>
 
-          <div class="service-card">
-            <span class="service-icon">💗</span>
-            <strong>پشتیبانی</strong>
-            <p>پاسخ‌گویی به مشتریان</p>
-          </div>
+  <button class="service-card" data-info="برای پرسیدن سؤال یا دریافت راهنمایی، از راه ارتباطی فروشگاه استفاده کنید.">
+    <span class="service-icon">💗</span>
+    <strong>پشتیبانی</strong>
+    <p>مشاهده جزئیات</p>
+  </button>
 
-          <div class="service-card">
-            <span class="service-icon">📦</span>
-            <strong>بسته‌بندی</strong>
-            <p>آماده‌سازی سفارش</p>
-          </div>
-        </section>
+  <button class="service-card" data-info="سفارش‌ها با دقت برای آماده‌سازی و ارسال بسته‌بندی می‌شوند.">
+    <span class="service-icon">📦</span>
+    <strong>بسته‌بندی</strong>
+    <p>مشاهده جزئیات</p>
+  </button>
+</section>
+
+<div id="service-popup" class="service-popup">
+  <div class="service-popup-content">
+    <button id="close-service-popup" type="button">×</button>
+    <p id="service-popup-text"></p>
+  </div>
+</div>
       </section>
     `;
 
