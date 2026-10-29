@@ -171,12 +171,14 @@ if (container) {
       document.getElementById("detail-message").textContent =
         "محصول به سبد خرید اضافه شد! 🛍️";
     });
-    document.querySelectorAll(".service-card").forEach(card => {
+   document.querySelectorAll(".service-card").forEach(card => {
   card.addEventListener("click", () => {
-    if (card.textContent.includes("پشتیبانی")) {
+
+    if (card.querySelector("strong").textContent.includes("پشتیبانی")) {
       window.open("https://wa.me/989962096558", "_blank");
       return;
     }
+
     document.getElementById("service-popup-text").textContent =
       card.dataset.info;
 
