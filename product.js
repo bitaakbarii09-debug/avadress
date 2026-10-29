@@ -158,8 +158,7 @@ if (container) {
     });
     const serviceSection = document.createElement("section");
 serviceSection.className = "service-cards";
-
-serviceSection.innerHTML = 
+    
 serviceSection.innerHTML = 
   <div class="service-card">
     <span class="service-icon">🚚</span>
